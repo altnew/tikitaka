@@ -12,7 +12,7 @@ The following is the simple example.
 * server side
 
 ```javascript
-var tikitaka = require('../../lib/tikitaka');
+var tikitaka = require('tikitaka');
 var http = require('http');
 
 var sv = http.createServer(function(req,res) {
