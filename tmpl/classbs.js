@@ -1,4 +1,3 @@
-var r = false;
 var c = {
 	s : new O(),
 	w : new WebSocket('ws://URL'),
@@ -8,12 +7,13 @@ var c = {
 		for ( var i=0; i<a.length; i++ ) r.push(a[i]);
 		return r
 	},
+	a : [],
 	e : function(a,b) { alert(a + ':' + b); }
 };
 c.n = new N(c);
 c.w.binaryType = 'arraybuffer';
 c.w.onopen = function() {
-	r = true;
+	for ( var i in c.a ) c.a[i]();
 }
 
 c.w.onmessage = function(d) {

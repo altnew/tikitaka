@@ -1,24 +1,27 @@
 {
   "name": "tikitaka",
   "version": "0.0.0",
-  "description": "Tikitaka ========",
-  "main": "index.js",
+  "description": "Object based data transfer library",
+  "main": "lib/tikitaka.js",
   "directories": {
-    "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/altnew/tikitaka.git"
   },
   "keywords": [
-    "node.js",
+    "transfer",
+    "websocket",
+    "client",
     "communication"
   ],
-  "author": "Ken Mat",
-  "license": "MIT",
+  "dependencies" : {
+    "websocket" : "*"
+  },
+  "author": "Ken Mat <ken.ma24ma@yahoo.com>",
+  "license": "BSD",
   "bugs": {
     "url": "https://github.com/altnew/tikitaka/issues"
   }

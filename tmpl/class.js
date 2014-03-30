@@ -1,10 +1,14 @@
 function PROXY() {
 	var t = this;
 	t.q = [];
-	c.n.s3("PROXY", function(a){ 
-		t.c = a;
-		for ( var i in t.q ) c.n.s1(C.frN(a,4), t.q[i].m, t.q[i].a);
-	} );
+	var f = function() {
+		c.n.s3("PROXY", function(a){ 
+			t.c = a;
+			for ( var i in t.q ) c.n.s1(C.frN(a,4), t.q[i].m, t.q[i].a);
+		} 
+	)};
+	if (c.w.readyState!=1) c.a.push(f);
+	else f();
 }
 
 PROXY.prototype.__c = function(m,a) {

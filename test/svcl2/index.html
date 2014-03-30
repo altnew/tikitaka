@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src='http://localhost:8080/test.js'></script>
+<script language="javascript">
+<!--
+
+var dog;
+var human;
+window.addEventListener('load', function() {
+	dog = new Dog();
+	human = new Human();
+});
+
+function test() {
+	var arr = [$('num1').value,$('num2').value,$('num3').value];
+	dog.calc(arr, function(a){alert(a); });
+	human.calc(arr, function(a){alert(a); });
+	
+}
+
+function $(id) {
+	return document.getElementById(id);
+}
+
+-->
+</script>
+</head>
+<body>
+<div>VALUE1:<input type="text" id="num1"></div>
+<div>VALUE2:<input type="text" id="num2"></div>
+<div>VALUE3:<input type="text" id="num3"></div>
+<div><a href="#" onclick="test()">calc</a></div>
+</body>
+</html>
