@@ -10,13 +10,36 @@ function test() {
 	fff.init(cb);
 }
 
-function cb() {
-	alert('success!!');
+function cb(p) {
+	alert(p);
 }
+
+var fff2;
+function test2() {
+	fff2 = new First2();
+	fff2.init(cb2);
+}
+
+function cb2(p) {
+	alert(p.aaaaa);
+}
+
+var fff3;
+function test3() {
+	fff2 = new First3();
+	fff2.init(cb3);
+}
+
+function cb3(p) {
+	p.aaaaa('client message');
+}
+
 -->
 </script>
 </head>
 <body>
 <a href="#" onclick="test()">test</a>
+<a href="#" onclick="test2()">test</a>
+<a href="#" onclick="test3()">test</a>
 </body>
 </html>

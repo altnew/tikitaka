@@ -11,13 +11,13 @@ var c = {
 	e : function(a,b) { alert(a + ':' + b); }
 };
 c.n = new N(c);
-
+c.w.binaryType = 'arraybuffer';
 c.w.onopen = function() {
 	r = true;
 }
 
 c.w.onmessage = function(d) {
-	c.n.r(d.data);
+	c.n.r(new Uint8Array(d.data));
 }
 
 // c.w.onerror:not implements

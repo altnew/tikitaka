@@ -4,6 +4,7 @@ var exec = require('child_process').exec,
 var lst = { 
 	'../lib/netport.js' : false, 
 	'../lib/objstore.js' : false,
+	'../lib/uint8conv.js' : false,
 	isReady : function() {
 		for ( var i in this ) if (this[i]===false) return false;
 		return true;
@@ -52,6 +53,7 @@ for ( var i in lst ) {
 			if (!err) {
 				buf += stdout.replace(/[a-zA-Z0-9]+\$([a-zA-Z][a-zA-Z0-9]*)/mg, '$1')
 					         .replace(/[ \r\n]*\/\*! ,,,[\s\S]*?``` \*\/[ \r\n]*/mg, "")
+							 .replace(/__TLOG\([^\)]*\);/mg,"")
                              .replace(/\\\\/mg,"\\\\\\\\").replace(/'/mg, "\\'");
 			lst[ii] = true;
 				if (lst.isReady()) {

@@ -29,7 +29,7 @@ module.exports = {
 			var websocket = req.accept(null, req.origin);
 			var conn = new Connection(websocket);
 			websocket.on('message', function(msg) {
-				conn.netport$n.receive$r(msg.utf8Data);
+				conn.netport$n.receive$r(new Uint8Array(msg.binaryData));
 			});
 			websocket.on('close', function (code,desc) {
 				conn.term$t();
