@@ -38,7 +38,7 @@ Human.prototype.calc = function( arr, f ) {
 	f("I can't speak English!!");
 }
 
-tikitaka.init(sv, 'localhost:8080',{ Dog:Dog, Human:Human } );
+tikitaka.init(sv, { Dog:Dog, Human:Human } );
 ```
 
 * client side
