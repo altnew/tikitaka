@@ -1,6 +1,6 @@
 var c = {
 	s : new O(),
-	w : new WebSocket('ws://URL'),
+	w : new WebSocket('ws://' + location.href.split('/')[2] + '/'),
 	r : function(a) {
 		if (a.length===1) return a[0];
 		var r = [];

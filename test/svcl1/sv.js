@@ -38,4 +38,4 @@ first.prototype.init = function(cb) {console.log('First.init is called'); cb('su
 
 
 
-tikitaka.init(sv, 'localhost:8080',{ First:first, First2:first2, First3:first3} );
+tikitaka.init(sv, { First:first, First2:first2, First3:first3} );

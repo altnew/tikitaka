@@ -3,6 +3,7 @@
  */
 var WSServer = require('websocket').server;
 var Connection = require('./connection');
+Function('return this')().__TLOG = function(){};
 
 /**
  * @namespace tikitaka
@@ -12,13 +13,11 @@ module.exports = {
 	 * @method init
 	 * @memberOf tikitaka 
 	 * @param {http} http server object
-	 * @param {String} url the url of websocket
 	 * @param {Object} fc classes set for client
 	 */
-	init : function(http, url, fc) {
+	init : function(http, fc) {
 		var webSockServer = new WSServer({httpServer:http});
 		var accept = ['localhost', '127.0.0.1']; // TODO:
-		this.url = url;
 		webSockServer.on('request', function (req) {
 			req.origin = req.origin || '*';
 			//if (accept.indexOf(url.parse(req.origin).hostname) === -1) {
@@ -51,7 +50,6 @@ module.exports = {
 		var rep = '#####$$$$$';
 		var bs = '@@@@@';
 		var bsm = '&&&&&';
-		rep = rep.replace('URL', this.url);
 		for (var i in fc ){
 			rep += bs.replace(/PROXY/g, i);
 			for (var j in fc[i].prototype) {

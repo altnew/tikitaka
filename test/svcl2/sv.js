@@ -1,10 +1,15 @@
 var tikitaka = require('../../lib/tikitaka');
 require('../../lib/debug');
 var http = require('http');
+var fs = require('fs');
 
 var sv = http.createServer(function(req,res) {
 	if (req.url=='/test.js') {
 		res.end(tikitaka.getScript());
+	} else if (req.url=='/') {
+		fs.readFile('index.html', function(err, data) {
+			res.end(data);
+		});
 	}
 }).listen(8080, function(){});
 
@@ -32,4 +37,4 @@ Human.prototype.calc = function( arr, f ) {
 }
 
 
-tikitaka.init(sv, 'localhost:8080',{ Dog:Dog, Human:Human } );
+tikitaka.init(sv, { Dog:Dog, Human:Human } );
