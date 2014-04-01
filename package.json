@@ -1,6 +1,6 @@
 {
   "name": "tikitaka",
-  "version": "0.0.0-03",
+  "version": "0.0.1",
   "description": "Object-based data exchange library",
   "main": "lib/tikitaka.js",
   "directories": {

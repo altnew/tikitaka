@@ -1,3 +1,7 @@
+
+Tikitaka is the data exchange library for Node.js. 
+This library enables you to implement a data exchange code like calling a destination object.
+
 Install
 -
 
