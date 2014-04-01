@@ -1,5 +1,4 @@
 var c = {
-	s : new O(),
 	w : new WebSocket('ws://' + location.href.split('/')[2] + '/'),
 	r : function(a) {
 		if (a.length===1) return a[0];
@@ -8,8 +7,9 @@ var c = {
 		return r
 	},
 	a : [],
-	e : function(a,b) { alert(a + ':' + b); }
+	e : function(a) { }
 };
+c.s = new O(c);
 c.n = new N(c);
 c.w.binaryType = 'arraybuffer';
 c.w.onopen = function() {
@@ -17,8 +17,13 @@ c.w.onopen = function() {
 }
 
 c.w.onmessage = function(d) {
-	c.n.r(new Uint8Array(d.data));
+	try {
+		c.n.r(new Uint8Array(d.data));
+	} catch (e) {
+		c.e(e.error);
+	}
 }
+
 
 // c.w.onerror:not implements
 

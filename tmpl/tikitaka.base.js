@@ -3,7 +3,6 @@
  */
 var WSServer = require('websocket').server;
 var Connection = require('./connection');
-Function('return this')().__TLOG = function(){};
 
 /**
  * @namespace tikitaka
@@ -26,9 +25,13 @@ module.exports = {
 			//	return;
 			//}
 			var websocket = req.accept(null, req.origin);
-			var conn = new Connection(websocket);
+			var conn = new Connection(websocket, this.log);
 			websocket.on('message', function(msg) {
-				conn.netport$n.receive$r(new Uint8Array(msg.binaryData));
+				try {
+					conn.netport$n.receive$r(new Uint8Array(msg.binaryData));
+				} catch (e) {
+					conn.log$e(3,e.error);
+				}
 			});
 			websocket.on('close', function (code,desc) {
 				conn.term$t();
@@ -60,12 +63,33 @@ module.exports = {
 	},
 
 	/**
+	 * @method log
+	 * @memberOf tikitaka
+	 * @param {String} level error level
+	 * @param {String} code error code
+	 * @param {String} desc description
+	 * @description default function is dummy.
+	 */
+	log : function(level, code, desc) {
+	},
+
+	/**
 	 * @method getScript
 	 * @memberOf tikitaka
 	 * @return {String} client script
 	 */
 	getScript : function(){
 		return this.js;
+	},
+
+	getMessage : function(id) {
+		var mes = {
+			'1' : 'failure to create instance',
+			'2' : 'called object is not exist',
+			'3' : 'called object function is not exist',
+			'4' : 'called function id not exist'
+		};
+		return mes[id] || id;
 	}
 };
 

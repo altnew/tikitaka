@@ -12,11 +12,14 @@ window.addEventListener('load', function() {
 	human = new Human();
 });
 
-function test() {
+function test1() {
 	var arr = [$('num1').value,$('num2').value,$('num3').value];
 	dog.calc(arr, function(a){alert(a); });
+}
+
+function test2() {
+	var arr = [$('num1').value,$('num2').value,$('num3').value];
 	human.calc(arr, function(a){alert(a); });
-	
 }
 
 function $(id) {
@@ -30,6 +33,7 @@ function $(id) {
 <div>VALUE1:<input type="text" id="num1"></div>
 <div>VALUE2:<input type="text" id="num2"></div>
 <div>VALUE3:<input type="text" id="num3"></div>
-<div><a href="#" onclick="test()">calc</a></div>
+<div><a href="#" onclick="test1()">make the dog calculate</a></div>
+<div><a href="#" onclick="test2()">make the man calculate</a></div>
 </body>
 </html>
