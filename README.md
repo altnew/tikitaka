@@ -1,6 +1,6 @@
 About
 =
-Tikitaka is the data exchange library for Node.js. This library enables you to implement a data exchange function like calling a destination object.
+Tikitaka is the data exchange library for Node.js. This library provides a data exchange functionality which enables client side JavaScript to call server function dynamically.
 
 Install
 =
@@ -10,18 +10,18 @@ Install
 How to use
 =
 
-In order to use this library, you must implements following details in your source codes.
+In order to use this library, you must implement following details in your source codes.
 
-server-side 
+Server-side 
 -
 
-* import tikitaka
+* Import tikitaka
 
 ```javascript
 var tikitaka = require('tikitaka');
 ```
 
-* prepare function as http server
+* Prepare function as http server
 
 
 ```javascript
@@ -40,14 +40,13 @@ var sv = http.createServer(function(req,res) {
 ```
 
 
-* prepare classes that opens to client
+* Prepare classes that opens to client
 
 ```javascript
 function Dog() {
 }
 
 Dog.prototype.calc = function( arr, f ) {
-	console.log('Dog.calc');
 	var v = 0, r = '';
 	for ( var i in arr ) {
 		v += parseInt(arr[i]);
@@ -62,24 +61,23 @@ function Human() {
 }
 
 Human.prototype.calc = function( arr, f ) {
-	console.log('Human.calc');
 	f("I Can't speak English!!");
 }
 
 ```
 
-* assign following valuable to tikitaka
+* Assign following valuable to tikitaka
 
- - instance of http module 
+ - Instance of http module 
 
- - classes to open to client 
+ - Classes to open to client 
 
 ```javascript
 tikitaka.init(sv, { Dog:Dog, Human:Human } );
 ```
 
 
-* prepare response to client request about javascript that made by tikitaka 
+* Prepare response to client request about javascript that made by tikitaka 
 
 ```javascript
 var sv = http.createServer(function(req,res) {
@@ -90,30 +88,27 @@ var sv = http.createServer(function(req,res) {
 ```
 
 
-client-side
+Client-side
 -
 
-* prepare loading javascript that made by tikitaka
+* Prepare loading javascript that made by tikitaka
 
 ```
 <script src='http://localhost:8080/test.js'></script>
 ```
 
-* implements codes that uses server classes
+* Implement codes that uses server classes
 
 ```javascript
-var dog, human;
 window.addEventListener('load', function() {
+    var dog, human,
+        arr = [1,2,3];
     dog = new Dog();
     human = new Human();
-});
-
-function test() {
-    var arr = [1,2,3];
     dog.calc(arr, function(a){alert(a); });
     human.calc(arr, function(a){alert(a); });
-}
-```
+});
+
 
 
 
