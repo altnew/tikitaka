@@ -1,3 +1,7 @@
+/**
+ * Use Mocha module to test this
+ */
+
 var conv = require('../lib/uint8conv');
 var should = require('should');
 

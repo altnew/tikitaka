@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src='http://localhost:8080/test.js'></script>
+<script language="javascript">
+<!--
+
+var o = { 
+	test1 : new Test1(), // Function type parameter
+	test2 : new Test2(), // Object type parameter
+	test3_4 : new Test3_4(), // Plural parameters
+	test5 : new Test5(), // Binary parameter
+	test6 : new Test6(), // Multilevel object parameter
+};
+
+window.addEventListener('load', function() {
+	o['test1'].test(function(f1) {
+		f1(function(f2) {
+			f2(function(){
+				ok('test1');
+			});
+		});
+	});
+
+	o['test2'].test({
+		param1 : '1',
+		func1 : function(o) {
+			o.func2({
+				param3 : o.param2,
+				func3 : function(v) {
+					if (v==='1') {
+						ok('test2');
+					}
+				}
+			});
+		}
+	});
+
+	o['test3_4'].test3('1','2',function(v1, v2) {
+			if (v1==='11'&&v2==='22') ok('test3');
+		}
+	);
+
+	o['test3_4'].test4('3','4','5', function(v3, v4, v5){
+			if(v3==='333'&&v4==='444'&&v5==='555') ok('test4');
+		}
+	);
+
+	var test5_v = new Uint8Array(1024);
+	for ( var i=0; i<1024; i++) {
+		test5_v[i] = (i%16) + ((i>>4)%16) + ((i>>8)%16);
+	}
+	o['test5'].test(test5_v,function(v) {
+		for ( var i=0; i<1024; i++) {
+			if (test5_v[i]!==v[i]) return;
+		}
+		ok('test5');
+	});
+
+	o['test6'].test(
+		{
+			a : {
+				b : '4993819',
+				f : function(v) {
+					alert(1);
+					if ( (v.a.b===this.c) &&
+						 (a.c===this.a.b) ) {
+						ok('test6');
+					}
+				}
+			},
+			c : '94857381'
+		}
+	);
+
+});
+
+
+function ok(id) {
+	var elm = document.getElementById(id);
+	elm.innerHTML = 'O';
+	elm.style.backgroundColor='#ccF';
+}
+
+-->
+</script>
+<style>
+.default{background-color:#f00; padding:6px; text-align:center}
+th { padding:12px}
+table tr td{ padding:0px; margin:0px;border-bottom:1px solid #aaa; vertical-align:middle}
+</style>
+</head>
+<body>
+<table>
+	<tr><th>CASE</th><th>DESCRIPTION</th><th>RESULT</th></tr>
+	<tr><td>test1</td><td>Function type parameter</td><td id="test1" class="default">X</td></tr>
+	<tr><td>test2</td><td>Object type parameter</td><td id="test2" class="default">X</td></tr>
+	<tr><td>test3</td><td>Plural parameters</td><td id="test3" class="default">X</td></tr>
+	<tr><td>test4</td><td>Plural functions</td><td id="test4" class="default">X</td></tr>
+	<tr><td>test5</td><td>Binary parameter</td><td id="test5" class="default">X</td></tr>
+	<tr><td>test6</td><td>Multilevel object parameter</td><td id="test6" class="default">X</td></tr>
+</body>
+</html>
