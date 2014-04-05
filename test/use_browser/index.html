@@ -11,6 +11,8 @@ var o = {
 	test3_4 : new Test3_4(), // Plural parameters
 	test5 : new Test5(), // Binary parameter
 	test6 : new Test6(), // Multilevel object parameter
+	testX : new TestX(), // Echo back
+	test8 : new Test8(), // Null parameter2
 };
 
 window.addEventListener('load', function() {
@@ -72,6 +74,45 @@ window.addEventListener('load', function() {
 		}
 	);
 
+	o['testX'].echo(null, function(p) {
+		if (p===null) ok('test7');
+	});
+
+	o['test8'].test( { a : null }, function(v) {
+		if (v.b===null) ok('test8');
+	});
+	
+	o['testX'].echo(0x7fffffffffffff, function(p) {
+		if (p===0x7fffffffffffff) ok('test9');
+	});
+
+	o['testX'].echo(-(0x7fffffffffffff), function(p) {
+		if (p===-(0x7fffffffffffff)) ok('test10');
+	});
+
+	o['testX'].echo(1.234567, function(p) {
+		if (p===1.234567) ok('test11');
+	});
+
+	o['testX'].echo(1234e-32, function(p) {
+		if (p===1234e-32) ok('test12');
+	});
+
+	o['testX'].echo(-1234e-32, function(p) {
+		if (p===-1234e-32) ok('test13');
+	});
+
+	o['testX'].echo(NaN, function(p) {
+		if (isNaN(p)) ok('test14');
+	});
+
+	o['testX'].echo(Infinity, function(p) {
+		if (!isFinite(p)) ok('test15');
+	});
+
+	o['testX'].echo(void 0, function(p) {
+		if (p===void 0) ok('test16');
+	});
 });
 
 
@@ -98,5 +139,15 @@ table tr td{ padding:0px; margin:0px;border-bottom:1px solid #aaa; vertical-alig
 	<tr><td>4</td><td>Plural functions</td><td id="test4" class="default">X</td></tr>
 	<tr><td>5</td><td>Binary parameter</td><td id="test5" class="default">X</td></tr>
 	<tr><td>6</td><td>Multilevel object parameter</td><td id="test6" class="default">X</td></tr>
+	<tr><td>7</td><td>Null parameter</td><td id="test7" class="default">X</td></tr>
+	<tr><td>8</td><td>Null parameter2</td><td id="test8" class="default">X</td></tr>
+	<tr><td>9</td><td>Maximum number</td><td id="test9" class="default">X</td></tr>
+	<tr><td>10</td><td>Minimum number</td><td id="test10" class="default">X</td></tr>
+	<tr><td>11</td><td>Decimal1(X.XXXX)</td><td id="test11" class="default">X</td></tr>
+	<tr><td>12</td><td>Decimal2(Xe-XXX)</td><td id="test12" class="default">X</td></tr>
+	<tr><td>13</td><td>Decimal3(-Xe-XXX)</td><td id="test13" class="default">X</td></tr>
+	<tr><td>14</td><td>NaN</td><td id="test14" class="default">X</td></tr>
+	<tr><td>15</td><td>Infinity</td><td id="test15" class="default">X</td></tr>
+	<tr><td>16</td><td>Undefined</td><td id="test16" class="default">X</td></tr>
 </body>
 </html>

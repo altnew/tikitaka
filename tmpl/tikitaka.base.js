@@ -16,6 +16,7 @@ module.exports = {
 	 */
 	init : function(http, fc) {
 		var webSockServer = new WSServer({httpServer:http});
+		var t = this;
 		var accept = ['localhost', '127.0.0.1']; // TODO:
 		webSockServer.on('request', function (req) {
 			req.origin = req.origin || '*';
@@ -25,12 +26,12 @@ module.exports = {
 			//	return;
 			//}
 			var websocket = req.accept(null, req.origin);
-			var conn = new Connection(websocket, this.log);
+			var conn = new Connection(websocket, t.log);
 			websocket.on('message', function(msg) {
 				try {
 					conn.netport$n.receive$r(new Uint8Array(msg.binaryData));
 				} catch (e) {
-					conn.log$e(3,e.error);
+					conn.log$e(3,e);
 				}
 			});
 			websocket.on('close', function (code,desc) {

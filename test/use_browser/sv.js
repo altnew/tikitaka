@@ -3,7 +3,7 @@ var http = require('http');
 var fs = require('fs');
 
 tikitaka.log = function( l, c, o ) {
-	console.log(l + ':' + tikitaka.getMessage(c) + ':' + o?o.toString():'');
+	console.log(l + ':' + tikitaka.getMessage(c) + ':' + o );
 }
 
 var sv = http.createServer(function(req,res) {
@@ -91,5 +91,23 @@ Test6.prototype.test = function(p) {
 	);
 }
 
+/**
+ * @class TestX
+ * @description Echo back
+ */
+function TestX(){}
+TestX.prototype.echo = function(p, f) {
+	f(p);
+};
 
-tikitaka.init(sv, { Test1:Test1, Test2:Test2, Test3_4:Test3_4, Test5:Test5, Test6:Test6 } );
+/**
+ * @class Test8
+ * @description Null parameter2
+ */
+function Test8(){}
+Test8.prototype.test = function(p,f) {
+	f({b:p.a});
+}
+
+
+tikitaka.init(sv, { Test1:Test1, Test2:Test2, Test3_4:Test3_4, Test5:Test5, Test6:Test6, TestX:TestX, Test8:Test8 } );
