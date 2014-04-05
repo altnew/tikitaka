@@ -6,7 +6,6 @@ tikitaka.log = function( l, c, o ) {
 	console.log(l + ':' + tikitaka.getMessage(c) + ':' + o?o.toString():'');
 }
 
-
 var sv = http.createServer(function(req,res) {
 	if (req.url=='/test.js') {
 		res.end(tikitaka.getScript());
@@ -15,7 +14,7 @@ var sv = http.createServer(function(req,res) {
 			res.end(data);
 		});
 	}
-}).listen(8080, function(){});
+}).listen(8000, function(){});
 
 /**
  * @class Test1
@@ -82,7 +81,6 @@ Test5.prototype.test = function(v, f) {
 function Test6(){}
 Test6.prototype.test = function(p) {
 	var a = p.a;
-	console.log(typeof(a.f));
 	p.a.f(
 		{
 			a : {

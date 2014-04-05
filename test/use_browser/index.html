@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src='http://localhost:8080/test.js'></script>
+<script src='/test.js'></script>
 <script language="javascript">
 <!--
 
@@ -62,9 +62,8 @@ window.addEventListener('load', function() {
 			a : {
 				b : '4993819',
 				f : function(v) {
-					alert(1);
-					if ( (v.a.b===this.c) &&
-						 (a.c===this.a.b) ) {
+					if ( (v.a.b==='94857381') &&
+						 (v.c==='4993819') ) {
 						ok('test6');
 					}
 				}
@@ -93,11 +92,11 @@ table tr td{ padding:0px; margin:0px;border-bottom:1px solid #aaa; vertical-alig
 <body>
 <table>
 	<tr><th>CASE</th><th>DESCRIPTION</th><th>RESULT</th></tr>
-	<tr><td>test1</td><td>Function type parameter</td><td id="test1" class="default">X</td></tr>
-	<tr><td>test2</td><td>Object type parameter</td><td id="test2" class="default">X</td></tr>
-	<tr><td>test3</td><td>Plural parameters</td><td id="test3" class="default">X</td></tr>
-	<tr><td>test4</td><td>Plural functions</td><td id="test4" class="default">X</td></tr>
-	<tr><td>test5</td><td>Binary parameter</td><td id="test5" class="default">X</td></tr>
-	<tr><td>test6</td><td>Multilevel object parameter</td><td id="test6" class="default">X</td></tr>
+	<tr><td>1</td><td>Function type parameter</td><td id="test1" class="default">X</td></tr>
+	<tr><td>2</td><td>Object type parameter</td><td id="test2" class="default">X</td></tr>
+	<tr><td>3</td><td>Plural parameters</td><td id="test3" class="default">X</td></tr>
+	<tr><td>4</td><td>Plural functions</td><td id="test4" class="default">X</td></tr>
+	<tr><td>5</td><td>Binary parameter</td><td id="test5" class="default">X</td></tr>
+	<tr><td>6</td><td>Multilevel object parameter</td><td id="test6" class="default">X</td></tr>
 </body>
 </html>
