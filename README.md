@@ -108,7 +108,19 @@ window.addEventListener('load', function() {
     dog.calc(arr, function(a){alert(a); });
     human.calc(arr, function(a){alert(a); });
 });
+```
 
-
-
+Operation verification
+=
+ 
+|OS|Browser|Result|Note|
+|:--|-----|-----|---|
+|Mac|Safari7.0.3|Work||
+|Mac|Chrome33|Work||
+|Mac|Firefox28|Work||
+|Windows|IE11|Work||
+|Blackberry10|Browser|Work||
+|Android4.0|Browser|Doesn't work|issue #8|
+|Android4.0|Chrome33|Work||
+|iOS7|Safari|Work||
 
