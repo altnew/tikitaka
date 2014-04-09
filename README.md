@@ -16,7 +16,7 @@ Operation verification
 |Mac|Firefox28|Work||
 |Windows|IE11|Work||
 |Blackberry10|Browser|Work||
-|Android4.0|Browser|Don't work|issue #8|
+|Android4.0|Browser|Don't work|This browser doesn't support WebSocket. issue #8|
 |Android4.0|Chrome33|Work||
 |iOS7|Safari|Work||
 
