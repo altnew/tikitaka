@@ -112,5 +112,17 @@ Test8.prototype.test = function(p,f) {
 	f({b:p.a});
 }
 
+/**
+ * @class Test9
+ * @description target valuable
+ */
+function Test9(){}
+Test9.prototype.test = function(o) {
+	var a = o.a;
+	var b = o.a.b;
 
-tikitaka.init(sv, { Test1:Test1, Test2:Test2, Test3_4:Test3_4, Test5:Test5, Test6:Test6, TestX:TestX, Test8:Test8 } );
+	a.b('level1');
+	b('level2');
+}
+
+tikitaka.init(sv, { Test1:Test1, Test2:Test2, Test3_4:Test3_4, Test5:Test5, Test6:Test6, TestX:TestX, Test8:Test8, Test9:Test9 } );

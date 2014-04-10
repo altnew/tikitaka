@@ -13,7 +13,6 @@ var o = {
 	test6 : new Test6(), // Call(Be called) function with multilevel object parameter
 	testX : new TestX(), // Echo back
 	test8 : new Test8(), // Call(Be called) function with null parameter
-	test9 : new Test9(), // Call function that is assigned to valuable
 };
 
 window.addEventListener('load', function() {
@@ -115,19 +114,6 @@ window.addEventListener('load', function() {
 		if (p===void 0) ok('test16');
 	});
 
-	o['test9'].test({
-		a : {
-			a : '111',
-			b : function(val) {
-				if ( this && this.a==='111' && val==='level1') {
-					ok('test17');
-				} else if (val==='level2') {
-					ok('test18');
-				}
-			}
-		}
-	});
-
 });
 
 
@@ -164,7 +150,5 @@ table tr td{ padding:0px; margin:0px;border-bottom:1px solid #aaa; vertical-alig
 	<tr><td>14</td><td>Call(Be called) function with NaN parameter</td><td id="test14" class="default">X</td></tr>
 	<tr><td>15</td><td>Call(Be called) function with Infinity parameter</td><td id="test15" class="default">X</td></tr>
 	<tr><td>16</td><td>Call(Be called) function with undefined parameter</td><td id="test16" class="default">X</td></tr>
-	<tr><td>17</td><td>Call(Be called) function that is assigned to valuable(object)</td><td id="test17" class="default">X</td></tr>
-	<tr><td>18</td><td>Call(Be called) function that is assined to valuable(function)</td><td id="test18" class="default">X</td></tr>
 </body>
 </html>

@@ -18,7 +18,7 @@ var lst = {
 const yuiname = 'yuicompressor-2.4.8.jar';
 const spth = 'java -jar lib/' + yuiname + ' --nomunge ';
 const base = '../tmpl/tikitaka_sv.base.js';
-const sfile = '../lib/tikitakai_sv.js';
+const sfile = '../lib/tikitaka_sv.js';
 var buf = '';
 var bbuf = null;
 

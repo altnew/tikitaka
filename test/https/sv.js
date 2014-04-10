@@ -16,7 +16,7 @@ var sv = https.createServer(options, function (req, res) {
 	if (req.url=='/test.js') {
 		res.end(tikitaka.getScript());
 	} else if (req.url=='/') {
-		fs.readFile('../http/index.html', function(err, data) {
+		fs.readFile('index.html', function(err, data) {
 			res.writeHead(200);
 			res.end(data);
 		});
