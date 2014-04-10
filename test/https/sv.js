@@ -1,20 +1,28 @@
-var tikitaka = require('../../lib/tikitaka');
-var http = require('http');
+var https = require('https');
+var Tikitaka = require('../../lib/tikitaka').Server;
 var fs = require('fs');
+var tikitaka = new Tikitaka();
 
 tikitaka.log = function( l, c, o ) {
 	console.log(l + ':' + tikitaka.getMessage(c) + ':' + o );
 }
 
-var sv = http.createServer(function(req,res) {
+var options = {
+  key: fs.readFileSync('keys/key.pem'),
+  cert: fs.readFileSync('keys/cert.pem')
+};
+
+var sv = https.createServer(options, function (req, res) {
 	if (req.url=='/test.js') {
 		res.end(tikitaka.getScript());
 	} else if (req.url=='/') {
-		fs.readFile('index.html', function(err, data) {
+		fs.readFile('../http/index.html', function(err, data) {
+			res.writeHead(200);
 			res.end(data);
 		});
 	}
-}).listen(8000, function(){});
+}).listen(8000);
+
 
 /**
  * @class Test1
@@ -110,4 +118,4 @@ Test8.prototype.test = function(p,f) {
 }
 
 
-tikitaka.init(sv, { Test1:Test1, Test2:Test2, Test3_4:Test3_4, Test5:Test5, Test6:Test6, TestX:TestX, Test8:Test8 } );
+tikitaka.initSec(sv, { Test1:Test1, Test2:Test2, Test3_4:Test3_4, Test5:Test5, Test6:Test6, TestX:TestX, Test8:Test8 } );

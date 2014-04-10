@@ -1,5 +1,5 @@
 var c = {
-	w : new WebSocket('ws://' + location.href.split('/')[2] + '/'),
+	w : new WebSocket('PROT://' + location.href.split('/')[2] + '/'),
 	r : function(a) {
 		if (a.length===1) return a[0];
 		var r = [];

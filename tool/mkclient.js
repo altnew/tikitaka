@@ -1,3 +1,8 @@
+/**
+ * This tool executes building "tikitaka.js" from resource of tmpl directory
+ * usage : "node mkclient.js"
+ */
+
 var exec = require('child_process').exec,
 	fs = require('fs');
 
@@ -12,8 +17,8 @@ var lst = {
 };
 const yuiname = 'yuicompressor-2.4.8.jar';
 const spth = 'java -jar lib/' + yuiname + ' --nomunge ';
-const base = '../tmpl/tikitaka.base.js';
-const sfile = '../lib/tikitaka.js';
+const base = '../tmpl/tikitaka_sv.base.js';
+const sfile = '../lib/tikitakai_sv.js';
 var buf = '';
 var bbuf = null;
 
