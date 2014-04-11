@@ -2,9 +2,9 @@ About
 =
 This module provides a data exchange functionality which enables both client-side(browser) and server-side(Node.js) JavaScript to **call transmission destination function dynamically** .
 
-Reference
+Tutorial
 =
-https://github.com/altnew/tikitaka/wiki/Reference
+https://github.com/altnew/tikitaka/wiki/Tutorial
 
 Operation verification
 =
