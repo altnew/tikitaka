@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/altnew/tikitaka.git"
+    "url": "https://github.com/osajiru/tikitaka.git"
   },
   "keywords": [
     "transfer",
@@ -20,9 +20,9 @@
   "dependencies" : {
     "websocket" : "*"
   },
-  "author": "Ken Mat <ken.ma24ma@yahoo.com>",
+  "author": "Ken Matsushima(Osajiru) <ken.ma24ma@yahoo.com>",
   "license": "BSD",
   "bugs": {
-    "url": "https://github.com/altnew/tikitaka/issues"
+    "url": "https://github.com/osajiru/tikitaka/issues"
   }
 }
