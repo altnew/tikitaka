@@ -4,7 +4,7 @@ This module provides a data exchange functionality which enables both client-sid
 
 Tutorial
 =
-https://github.com/altnew/tikitaka/wiki/Tutorial
+https://github.com/osajiru/tikitaka/wiki/Tutorial
 
 Operation verification
 =
