@@ -1,6 +1,6 @@
 {
   "name": "tikitaka",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Object-based data exchange library",
   "main": "lib/tikitaka.js",
   "directories": {
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/osajiru/tikitaka.git"
+    "url": "https://github.com/kenmazsyma/tikitaka.git"
   },
   "keywords": [
     "transfer",
@@ -20,9 +20,9 @@
   "dependencies" : {
     "websocket" : "*"
   },
-  "author": "Ken Matsushima(Osajiru) <ken.ma24ma@yahoo.com>",
+  "author": "Ken Mazsyma <ken.ma24ma@yahoo.com>",
   "license": "BSD",
   "bugs": {
-    "url": "https://github.com/osajiru/tikitaka/issues"
+    "url": "https://github.com/kenmazsyma/tikitaka/issues"
   }
 }
